@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>El Museo de la Solidaridad</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="/static/materialize.min.css">
+  <style>
+    p,
+    li a {
+      font-size: 1.3rem;
+    }
+
+    .title {
+      padding: 2px;
+      margin: auto;
+      background: black;
+      color: red;
+      text-align: center;
+    }
+
+    .tabs .indicator {
+      background-color: #1a237e;
+    }
+
+    .tabs .tab a:focus,
+    .tabs .tab a:focus.active {
+      background: transparent;
+    }
+
+    .img-wrapper {
+      margin-top: 2vh;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: minmax(auto, 25vh);
+      grid-gap: 1vh;
+    }
+
+    .picture {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .escenas-container {
+      display: grid;
+      grid-template-columns: 1fr 5fr;
+      grid-auto-rows: 70vh;
+    }
+
+    .escenas-collection {
+      overflow-y: scroll;
+    }
+
+    .escenas-video iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    .escena-item {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="grey lighten-2">
+  <!-- Header -->
+  <header class="black">
+    <div class="navbar-fixed">
+      <nav class="nav-wrapper fixed black">
+        <div class="container">
+          <a href="#" class="brand-logo red-text">El Museo de la Solidaridad</a>
+          <ul class="right">
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#trailers">Trailers</a></li>
+            <li><a href="#fotos">Fotos</a></li>
+            <li><a href="#archivos">Archivos</a></li>
+            <li><a href="#escenas">Escenas</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+  </header>
+
+  <!-- Introduction -->
+  <section id="introduccion" class="scrollspy" style="margin: 14vh 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+
+          <img src="/static/img_new/grafica/chile_vive_y_lucha.jpg" alt="" class="responsive-img materialboxed">
+        </div>
+        <div class="col l5 s12 offset-l1">
+          <h3 class="indigo-text text-darken-4 center">Intro</h3>
+          <p>Este documental relata la fascinante historia del Museo de la Solidaridad Salvador Allende en Chile,
+            institución que atesora una de las colecciones de arte moderno más importantes del mundo.</p>
+          <div class="divider"></div>
+          <h3 class=" indigo-text text-darken-4 center">Storyline</h3>
+          <p>Luego del golpe militar en 1973, cientos de obras de arte donadas al Museo de la Solidaridad en Chile
+            desaparecieron sin dejar rastro. Impresionada por estos sucesos, una joven decide investigar sobre este
+            misterioso museo, acercándose peligrosamente al paradero de la colección en plena dictadura militar</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Parallax 1 -->
+  <div class=" parallax-container" style="height: 600px;">
+    <div class="parallax">
+      <img src="{{ parallax.3 }}" alt="" class="responsive-img">
+    </div>
+  </div>
+
+  <!-- Trailers -->
+  <div class="title">
+    <h4>Trailers</h4>
+  </div>
+  <section style="margin: 7vh 2vw 18vh;" id="trailers" class="scrollspy">
+    <div class="row">
+      <div class="col l6 s12">
+        <h4 class="indigo-text text-darken-4 center">Trailer</h4>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/BQaCHhN2DdY" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <div class="col l6 s12">
+        <h4 class="indigo-text text-darken-4 center">Crowdfunding</h4>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/lOBQ_GgqXe4" frameborder="0"
+            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Parallax 2 -->
+  <div class=" parallax-container">
+    <div class="parallax">
+      <img src="{{ parallax.1 }}" alt="" class="responsive-img">
+    </div>
+  </div>
+
+  <!-- Fotos -->
+  <div class="title">
+    <h3>Fotos</h3>
+  </div>
+
+  <section id="fotos" class="scrollspy" style="margin: 5vh 10vw">
+    <ul class="tabs grey lighten-2 center" style="font-size: 1.4rem;">
+      <li class="tab"><a href="#fotos-obras" class="indigo-text text-darken-4">obras</a></li>
+      <li class="tab"><a href="#fotos-cartel" class="indigo-text text-darken-4">cartel</a></li>
+      <li class="tab"><a href="#fotos-prensa" class="indigo-text text-darken-4">prensa</a></li>
+      <li class="tab"><a href="#fotos-fotos" class="indigo-text text-darken-4">fotos</a></li>
+    </ul>
+
+    <div id="fotos-obras">
+      <div class="img-wrapper">
+        {% for imgname in gallery.obras %}
+        <div class="picture">
+          <img src="/static/img_new/obras/{{ imgname }}" alt="" class="materialboxed hoverable">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div id="fotos-cartel">
+      <div class="img-wrapper">
+        {% for imgname in gallery.cartel %}
+        <div class="picture">
+          <img src="/static/img_new/cartel/{{ imgname }}" alt="" class="materialboxed hoverable">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div id="fotos-prensa">
+      <div class="img-wrapper">
+        {% for imgname in gallery.prensa %}
+        <div class="picture">
+          <img src="/static/img_new/prensa/{{ imgname }}" alt="" class="materialboxed hoverable">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div id="fotos-fotos">
+      <div class="img-wrapper">
+        {% for imgname in gallery.fotos %}
+        <div class="picture">
+          <img src="/static/img_new/fotos/{{ imgname }}" alt="" class="materialboxed hoverable">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Parallax 3 -->
+  <div class=" parallax-container" style="height: 650px;">
+    <div class="parallax">
+      <img src="{{ parallax.2 }}" alt="" class="responsive-img">
+    </div>
+  </div>
+
+  <!-- Archivos -->
+  <div class="title">
+    <h3>Archivos</h3>
+  </div>
+  <section id="archivos" style="margin: 8vh 0" class="scrollspy">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 l6">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/SRN5pljs7mA" frameborder="0"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="col s12 l6">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/qhx3xNl29_g" frameborder="0"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="col s12 l6">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/xwYMX0RiWUc" frameborder="0"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="col s12 l6">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/1sJ6x6jY_Mg" frameborder="0"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- Parallax 4 -->
+  <div class=" parallax-container">
+    <div class="parallax">
+      <img src="{{ parallax.0 }}" alt="" class="responsive-img">
+    </div>
+  </div>
+
+  <!-- Escenas -->
+  <div class="title">
+    <h3>Escenas</h3>
+  </div>
+  <section id="escenas" class="scrollspy" style="margin: 7vh 5vw;">
+    <div class="escenas-container">
+      <div class="escenas-collection">
+        <div class="collection">
+          {% for n_escena, id in escenas %}
+            <a class="collection-item escena-item" escenaid={{ id }}>Escena #{{ n_escena }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="escenas-video">
+        <iframe id="iframe-escenas" src="https://www.youtube.com/embed/1sJ6x6jY_Mg" frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="page-footer grey darken-3">
+    <div class="container">
+      <p>
+        El Museo de la Solidaridad es un proyecto de documental de Tomás Strahovsky.
+      </p>
+    </div>
+    
+    <div class="footer-copyright grey darken-4">
+      <div class="container center-align">
+        &copy; 2019 Alfredo Alarcón
+      </div>
+    </div>
+  </footer>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="/static/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Activate Materialize objects
+      M.Parallax.init(document.querySelectorAll('.parallax'));
+      M.Materialbox.init(document.querySelectorAll('.materialboxed'));
+      M.ScrollSpy.init(document.querySelectorAll('.scrollspy'));
+      M.Tabs.init(document.querySelectorAll('.tabs'));
+
+      // Select first escena
+      let firstEscena = document.querySelector('.escena-item');
+      let video = document.querySelector('#iframe-escenas');
+      video.src = `https://www.youtube.com/embed/${firstEscena.attributes.escenaid.nodeValue}`;
+      firstEscena.classList.toggle("active");
+
+      // Change escena on user click
+      document.querySelector('.escenas-collection').addEventListener('click', e => {
+        // deactivate old target
+        let oldTarget = document.querySelector('.escena-item.active')
+        if (oldTarget !== null) oldTarget.classList.toggle("active");
+        // change video
+        video.src = `https://www.youtube.com/embed/${e.target.attributes.escenaid.nodeValue}`;
+        // activate current target
+        e.target.classList.toggle("active");
+      })
+    });
+
+  </script>
+</body>
+
+</html>
