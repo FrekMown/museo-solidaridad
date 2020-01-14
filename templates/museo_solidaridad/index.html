@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>El Museo de la Solidaridad</title>
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="/static/materialize.min.css">
+  <link rel="stylesheet" href="/static/museo_solidaridad/css/materialize.min.css">
   <style>
     p,
     li a {
@@ -98,7 +98,7 @@
       <div class="row">
         <div class="col l6 s12">
 
-          <img src="/static/img_new/grafica/chile_vive_y_lucha.jpg" alt="" class="responsive-img materialboxed">
+          <img src="/static/museo_solidaridad/img_new/grafica/chile_vive_y_lucha.jpg" alt="" class="responsive-img materialboxed">
         </div>
         <div class="col l5 s12 offset-l1">
           <h3 class="indigo-text text-darken-4 center">Intro</h3>
@@ -171,7 +171,7 @@
       <div class="img-wrapper">
         {% for imgname in gallery.obras %}
         <div class="picture">
-          <img src="/static/img_new/obras/{{ imgname }}" alt="" class="materialboxed hoverable">
+          <img src="/static/museo_solidaridad/img_new/obras/{{ imgname }}" alt="" class="materialboxed hoverable">
         </div>
         {% endfor %}
       </div>
@@ -180,7 +180,7 @@
       <div class="img-wrapper">
         {% for imgname in gallery.cartel %}
         <div class="picture">
-          <img src="/static/img_new/cartel/{{ imgname }}" alt="" class="materialboxed hoverable">
+          <img src="/static/museo_solidaridad/img_new/cartel/{{ imgname }}" alt="" class="materialboxed hoverable">
         </div>
         {% endfor %}
       </div>
@@ -189,7 +189,7 @@
       <div class="img-wrapper">
         {% for imgname in gallery.prensa %}
         <div class="picture">
-          <img src="/static/img_new/prensa/{{ imgname }}" alt="" class="materialboxed hoverable">
+          <img src="/static/museo_solidaridad/img_new/prensa/{{ imgname }}" alt="" class="materialboxed hoverable">
         </div>
         {% endfor %}
       </div>
@@ -198,7 +198,7 @@
       <div class="img-wrapper">
         {% for imgname in gallery.fotos %}
         <div class="picture">
-          <img src="/static/img_new/fotos/{{ imgname }}" alt="" class="materialboxed hoverable">
+          <img src="/static/museo_solidaridad/img_new/fotos/{{ imgname }}" alt="" class="materialboxed hoverable">
         </div>
         {% endfor %}
       </div>
@@ -278,7 +278,7 @@
       </div>
 
       <div class="escenas-video">
-        <iframe id="iframe-escenas" src="https://www.youtube.com/embed/1sJ6x6jY_Mg" frameborder="0"
+        <iframe id="iframe-escenas" src="" frameborder="0"
           allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
       </div>
@@ -301,7 +301,7 @@
   </footer>
 
   <!-- Compiled and minified JavaScript -->
-  <script src="/static/materialize.min.js"></script>
+  <script src="/static/museo_solidaridad/js/materialize.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Activate Materialize objects
@@ -310,7 +310,7 @@
       M.ScrollSpy.init(document.querySelectorAll('.scrollspy'));
       M.Tabs.init(document.querySelectorAll('.tabs'));
 
-      // Select first escena
+      // Select first escena Alfredo Alarcón
       let firstEscena = document.querySelector('.escena-item');
       let video = document.querySelector('#iframe-escenas');
       video.src = `https://www.youtube.com/embed/${firstEscena.attributes.escenaid.nodeValue}`;
