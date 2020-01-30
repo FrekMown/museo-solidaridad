@@ -9,10 +9,18 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="/static/museo_solidaridad/css/materialize.min.css">
   <style>
-    p,
-    li a {
-      font-size: 1.3rem;
+    @import url('https://fonts.googleapis.com/css?family=Patrick+Hand+SC&display=swap');
+
+
+    body {
+      font-family: 'Patrick Hand SC', cursive;
+      font-size: 1.5rem;
     }
+
+    nav ul a, .tabs .tab a {
+      font-size: 1.4rem;
+    }
+
 
     .title {
       padding: 2px;
@@ -68,6 +76,30 @@
 
     .escena-item {
       cursor: pointer;
+    }
+
+    .collection a.collection-item {
+      color: black;
+    }
+
+    .collection .collection-item.active {
+      background-color: black;
+      color: red;
+    }
+
+    .escenas-collection {
+      border: 2px solid black;
+      border-radius: 5px;
+    }
+
+    .collection {
+      margin: 0;
+    }
+
+    @media screen and (max-width: 1200px) {
+      nav ul.right {
+        display: none;
+      }
     }
   </style>
 </head>
